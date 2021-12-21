@@ -1,2 +1,2 @@
 pylint
-black
+autopep8

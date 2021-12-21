@@ -1,5 +1,6 @@
 """some functions for handling sms response business logic"""
 
+from flask import current_app as app
 from twilio.twiml.messaging_response import MessagingResponse
 
 import buzzer
@@ -13,8 +14,7 @@ def handle_message_body(body):
     if body.lower().strip() == "let me in":
         try:
             response = buzzer.send_buzz(app.config["SWITCHBOT_AUTH"])
-            log("response:")
-            log(response)
+            utils.log(response)
             if not response or response.status_code != 200:
                 raise Exception("failed to buzz")
 
