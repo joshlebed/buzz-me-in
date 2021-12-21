@@ -1,3 +1,5 @@
 config.json
-env
+.env
 .vscode
+service-account-file.json
+__pycache__
