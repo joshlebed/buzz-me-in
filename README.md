@@ -15,8 +15,34 @@ you need a `config.json` in the root directory for switchbot auth. example
 
 ## dev quickstart
 
-TODO: maybe eventually switch to GCP's
-[local dev server](https://cloud.google.com/appengine/docs/standard/python3/testing-and-deploying-your-app#local-dev-server)
+TODO: independent backend and frontend dev
+
+### database - postgresql
+
+prereqs:
+
+- postgres
+
+start postgres server - depends on how you installed postgres
+
+```bash
+brew services restart postgresql     # if postgres was installed with brew
+postgres -D /usr/local/var/postgres  # to run postgres without brew
+```
+
+create local postgres db
+
+```bash
+createdb buzz-me-in
+```
+
+run postgres interactive terminal
+
+```bash
+psql buzz-me-in
+```
+
+### backend - python + flask
 
 prereqs:
 
@@ -41,13 +67,19 @@ deactivate                # deactivate virtual env
 to run server locally (with virtual environment activated):
 
 ```bash
-python main.py
+yarn start-server
+```
+
+to run server in Google's dev server locally to mimic the prod environment:
+
+```bash
+dev_appserver.py --env_var GOOGLE_APPLICATION_CREDENTIALS=[path to your credentials] .
 ```
 
 to run tests:
 
 ```bash
-pytest
+yarn test-server
 ```
 
 NOTE: to run the server, currently you need an authorized google cloud service
@@ -55,6 +87,20 @@ account key file on your machine, as well as the
 `GOOGLE_APPLICATION_CREDENTIALS` env var set to the location of that file. This
 is just for logs. TODO: remove google logs dependency or set logs to only use
 google when on the server
+
+### frontend - typescript + react
+
+install dependencies
+
+```bash
+yarn
+```
+
+start react dev server
+
+```bash
+yarn start
+```
 
 ## deployment stuff
 
@@ -71,5 +117,100 @@ prereqs for deployment:
 to deploy a new version (from root dir):
 
 ```bash
-gcloud app deploy
+yarn build          # build the react app
+gcloud app deploy   # push to prod server
 ```
+
+---
+
+# Create React App readme
+
+This project was bootstrapped with
+[Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests)
+for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best
+performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about
+[deployment](https://facebook.github.io/create-react-app/docs/deployment) for
+more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can
+`eject` at any time. This command will remove the single build dependency from
+your project.
+
+Instead, it will copy all the configuration files and the transitive
+dependencies (webpack, Babel, ESLint, etc) right into your project so you have
+full control over them. All of the commands except `eject` will still work, but
+they will point to the copied scripts so you can tweak them. At this point
+you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for
+small and middle deployments, and you shouldn't feel obligated to use this
+feature. However we understand that this tool wouldn't be useful if you couldn't
+customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the
+[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here:
+[https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here:
+[https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here:
+[https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here:
+[https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here:
+[https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here:
+[https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

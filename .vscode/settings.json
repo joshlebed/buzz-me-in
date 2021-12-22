@@ -1,0 +1,10 @@
+{
+  "editor.tabSize": 4,
+  "python.formatting.provider": "black",
+  "files.exclude": {
+    "**/.env": true,
+    "**/.git": true,
+    "**.pytest_cache": true,
+    "**__pycache__": true
+  }
+}
