@@ -1,17 +1,22 @@
-import React, { useState } from 'react';
+import * as React from 'react';
+import { useState } from 'react';
 import './App.css';
 import lockFailed from './lock-failed.svg';
 import lockUnlocked from './lock-unlocked.svg';
 import lock from './lock.svg';
 
-const renderResult = ({ success }) =>
-  success ? (
+interface renderResultProps {
+  success: boolean;
+}
+
+const renderResult: React.FunctionComponent<renderResultProps> = (props: renderResultProps) =>
+  props.success ? (
     <img src={lockUnlocked} className="Lock-icon" alt="lock" />
   ) : (
     <img src={lockFailed} className="Lock-icon" alt="lock" />
   );
 
-const App = function () {
+const App = () => {
   const [requested, setRequested] = useState(false);
   const [success, setSuccess] = useState();
 
@@ -23,7 +28,6 @@ const App = function () {
       // })
       .then((res) => res.json())
       .then((data) => {
-        console.log({ data });
         setSuccess(data.success);
         setRequested(true);
       });
