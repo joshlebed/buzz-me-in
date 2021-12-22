@@ -17,5 +17,17 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'react/jsx-filename-extension': 'off',
+    'react/function-component-definition': [
+      'warn',
+      { namedComponents: 'arrow-function', unnamedComponents: 'arrow-function' },
+    ],
+    'import/extensions': ['warn', 'never', { svg: 'always' }],
+  },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
   },
 };
