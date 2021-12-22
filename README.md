@@ -15,8 +15,34 @@ you need a `config.json` in the root directory for switchbot auth. example
 
 ## dev quickstart
 
-TODO: maybe eventually switch to GCP's
-[local dev server](https://cloud.google.com/appengine/docs/standard/python3/testing-and-deploying-your-app#local-dev-server)
+TODO: independent backend and frontend dev
+
+### database - postgresql
+
+prereqs:
+
+- postgres
+
+start postgres server - depends on how you installed postgres
+
+```bash
+brew services restart postgresql     # if postgres was installed with brew
+postgres -D /usr/local/var/postgres  # to run postgres without brew
+```
+
+create local postgres db
+
+```bash
+createdb buzz-me-in
+```
+
+run postgres interactive terminal
+
+```bash
+psql buzz-me-in
+```
+
+### backend - python + flask
 
 prereqs:
 
@@ -41,7 +67,7 @@ deactivate                # deactivate virtual env
 to run server locally (with virtual environment activated):
 
 ```bash
-python api/main.py
+yarn start-server
 ```
 
 to run server in Google's dev server locally to mimic the prod environment:
@@ -53,7 +79,7 @@ dev_appserver.py --env_var GOOGLE_APPLICATION_CREDENTIALS=[path to your credenti
 to run tests:
 
 ```bash
-pytest
+yarn test-server
 ```
 
 NOTE: to run the server, currently you need an authorized google cloud service
@@ -61,6 +87,20 @@ account key file on your machine, as well as the
 `GOOGLE_APPLICATION_CREDENTIALS` env var set to the location of that file. This
 is just for logs. TODO: remove google logs dependency or set logs to only use
 google when on the server
+
+### frontend - typescript + react
+
+install dependencies
+
+```bash
+yarn
+```
+
+start react dev server
+
+```bash
+yarn start
+```
 
 ## deployment stuff
 
