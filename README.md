@@ -41,7 +41,13 @@ deactivate                # deactivate virtual env
 to run server locally (with virtual environment activated):
 
 ```bash
-python main.py
+python api/main.py
+```
+
+to run server in Google's dev server locally to mimic the prod environment:
+
+```bash
+dev_appserver.py --env_var GOOGLE_APPLICATION_CREDENTIALS=[path to your credentials] .
 ```
 
 to run tests:
