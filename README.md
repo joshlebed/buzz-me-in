@@ -77,7 +77,8 @@ prereqs for deployment:
 to deploy a new version (from root dir):
 
 ```bash
-gcloud app deploy
+yarn build          # build the react app
+gcloud app deploy   # push to prod server
 ```
 
 ---

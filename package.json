@@ -60,5 +60,6 @@
     "**/*.{js,ts,jsx,tsx,yml,yaml,json,html,css}": [
       "prettier --write"
     ]
-  }
+  },
+  "proxy": "http://0.0.0.0:8080/"
 }
