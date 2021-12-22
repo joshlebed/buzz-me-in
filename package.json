@@ -32,7 +32,8 @@
     "start-server": ".env/bin/python api/main.py",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -52,15 +53,12 @@
       "last 1 safari version"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "**/*.js": [
-      "eslint --fix",
-      "git add"
+    "**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix"
+    ],
+    "**/*.{js,ts,jsx,tsx,yml,yaml,json,html,css}": [
+      "prettier --write"
     ]
   }
 }
