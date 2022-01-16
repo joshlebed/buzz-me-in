@@ -2,9 +2,14 @@ import json
 import logging
 
 import google.cloud.logging
+from flask import Response
 
 client = google.cloud.logging.Client()
 client.setup_logging()
+
+
+class RequestFailedException(Exception):
+    """exception for when a request fails for any reason"""
 
 
 def log(msg):
@@ -26,3 +31,8 @@ def get_config(file_path):
 
     except:
         return False
+
+
+def bad_request_response():
+    """return 400: bad request"""
+    return Response("bad request", status=400)
