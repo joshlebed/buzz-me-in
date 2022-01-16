@@ -70,5 +70,5 @@
       "prettier --write"
     ]
   },
-  "proxy": "http://0.0.0.0:8080/"
+  "proxy": "http://localhost:8080/"
 }
