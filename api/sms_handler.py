@@ -7,8 +7,21 @@ import buzzer
 import utils
 
 
-def handle_message_body(body):
+def handle_sms(request):
     """handle incoming sms and respond"""
+    utils.log(request)
+    if request.method == "POST":
+        body = request.values.get("Body", None)
+        if not body:
+            return unauthorized_texter_response()
+
+        return handle_message_body(body)
+
+    return utils.bad_request_response()
+
+
+def handle_message_body(body):
+    """respond to SMS message body with SMS response"""
     utils.log("handling message: " + body)
     resp = MessagingResponse()
     if body.lower().strip() == "let me in":
@@ -16,12 +29,15 @@ def handle_message_body(body):
             response = buzzer.send_buzz(app.config["SWITCHBOT_AUTH"])
             utils.log(response)
             if not response or response.status_code != 200:
-                raise Exception("failed to buzz")
+                raise utils.RequestFailedException("failed to buzz")
 
             resp.message("welcome!")
 
-        except:
-            resp.message("failed :(")
+        except utils.RequestFailedException:
+            resp.message("failed to reach buzzer :(")
+
+        except Exception:
+            resp.message("unknown error :(")
 
     else:
         resp.message("unauthorized")
