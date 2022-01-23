@@ -1,5 +1,5 @@
 import LoadingOverlay from 'react-loading-overlay';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 const UnlockButtonContainer = styled.div`
   display: flex;
@@ -96,9 +96,17 @@ const StyledLoadingOverlay = styled(LoadingOverlay)`
   }
 `;
 
-const LockIconImg = styled.img`
+const IconImg = styled.img`
   height: 120px;
   pointer-events: none;
+`;
+
+const LockIconImg = styled(IconImg)`
+  padding: 0px 25px 0px 25px;
+`;
+
+const UnlockedIconImg = styled(LockIconImg)`
+  padding: 0px 40px 0px 10px;
 `;
 
 export {
@@ -115,4 +123,5 @@ export {
   PasscodeInputContainer,
   TitleP,
   ErrorP,
+  UnlockedIconImg,
 };

@@ -35,5 +35,4 @@ def handle_unlock_request(access_code):
         except Exception:
             return {"success": False, "errorCode": 2, "message": "failed to buzz"}
 
-    time.sleep(2)
     return {"success": False, "errorCode": 1, "message": "invalid access code"}

@@ -5,7 +5,6 @@ import UnlockButtonForm from './UnlockButtonForm';
 const App = () => (
   <PageContainer>
     <AppContainer>
-      {/* TODO: add react router */}
       <UnlockButtonForm />
     </AppContainer>
   </PageContainer>
