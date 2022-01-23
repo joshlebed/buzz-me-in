@@ -15,6 +15,7 @@ import {
   TitleP,
   UnlockButton,
   UnlockButtonContainer,
+  UnlockedIconImg,
 } from './SharedComponents';
 import spinner from './spinner.svg';
 
@@ -29,7 +30,7 @@ const renderLockIcon: React.FunctionComponent<renderLockIconProps> = (props: ren
     return <LockIconImg src={lockFailed} alt="lock failed" />;
   }
   if (props.success) {
-    return <LockIconImg src={lockUnlocked} alt="lock unlocked" />;
+    return <UnlockedIconImg src={lockUnlocked} alt="lock unlocked" />;
   }
   return <LockIconImg src={lock} alt="lock" color="red" />;
 };
@@ -53,13 +54,6 @@ const getInfoMessage: React.FunctionComponent<getInfoMessageProps> = (props: get
   }
   return <BodyP>tap to unlock</BodyP>;
 };
-
-// const renderLockIcon: React.FunctionComponent<renderLockIconProps> = (props: renderLockIconProps) =>
-// props.loading ? (
-//   <LockIconImg src={lockUnlocked}  alt="lock" />
-// ) : (
-//   <LockIconImg src={lockFailed}  alt="lock" />
-// );
 
 const UnlockButtonForm: React.FunctionComponent = () => {
   const [requested, setRequested] = useState(false);
