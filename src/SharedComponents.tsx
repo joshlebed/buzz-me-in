@@ -1,5 +1,5 @@
 import LoadingOverlay from 'react-loading-overlay';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 const UnlockButtonContainer = styled.div`
   display: flex;
