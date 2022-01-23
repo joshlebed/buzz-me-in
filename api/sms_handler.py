@@ -9,6 +9,7 @@ import utils
 
 def handle_sms(request):
     """handle incoming sms and respond"""
+    utils.log(request)
     if request.method == "POST":
         body = request.values.get("Body", None)
         if not body:
