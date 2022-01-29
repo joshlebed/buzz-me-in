@@ -18,7 +18,7 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  background-color: rgb(19, 58, 79);
+  background-color: rgb(13, 44, 61);
   width: 100%;
   height: 100%;
 `;

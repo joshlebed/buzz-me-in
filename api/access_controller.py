@@ -5,7 +5,7 @@ from flask import current_app as app
 import buzzer
 import utils
 
-hardcoded_access_codes = ["let me in"]
+hardcoded_access_codes = ["let me in", "letmein", "pr128"]
 
 
 def handle_unlock_request(access_code):
