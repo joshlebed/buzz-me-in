@@ -19,9 +19,13 @@ TODO: independent backend and frontend dev
 
 ### database - postgresql
 
+TODO: add environment variables shell script for local vs prod environments
+
 prereqs:
 
 - postgres
+
+#### connect to local db
 
 start postgres server - depends on how you installed postgres
 
@@ -40,6 +44,14 @@ run postgres interactive terminal
 
 ```bash
 psql buzz-me-in
+```
+
+#### connect to prod db
+
+on GCP, the instance is called `buzzer-166`. In the cloud console, enter:
+
+```bash
+gcloud sql connect myinstance --user=postgres
 ```
 
 ### backend - python + flask
