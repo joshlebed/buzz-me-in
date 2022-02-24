@@ -11,7 +11,7 @@
 /setup.cfg
 
 # dirs
-.env
+.venv
 .git
 .husky
 .vscode

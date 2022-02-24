@@ -2,7 +2,7 @@
   "editor.tabSize": 4,
   "python.formatting.provider": "black",
   "files.exclude": {
-    "**/.env": true,
+    "**/.venv": true,
     "**/.git": true,
     "**.pytest_cache": true,
     "**__pycache__": true

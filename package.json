@@ -41,7 +41,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-server": ".env/bin/python api/main.py",
+    "start-server": ".venv/bin/python api/main.py",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test-server": "pytest",
