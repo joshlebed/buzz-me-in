@@ -31,3 +31,6 @@ sql
 package-lock.json
 package.json
 README.md
+
+# take this off the .gcloudignore list to make changes
+config.json

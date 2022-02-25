@@ -9,7 +9,9 @@ you need a `config.json` in the root directory for switchbot auth. example
 
 ```json
 {
-  "SWITCHBOT_AUTH": "[auth key here]"
+  "SWITCHBOT_AUTH": "[auth key here]",
+  "TWILIO_ACCOUNT_SID": "[sid here]",
+  "TWILIO_AUTH_TOKEN": "[auth token here]"
 }
 ```
 
@@ -69,8 +71,8 @@ python3 -m pip install venv
 set up virtual environment (in root dir):
 
 ```bash
-python3 -m venv .env      # create virtual env
-source .env/bin/activate  # activate virtual env
+python3 -m venv .venv      # create virtual env
+source .venv/bin/activate  # activate virtual env
 # install dependencies and test dependencies
 pip install -r requirements.txt -r requirements-test.txt -r requirements-dev.txt
 deactivate                # deactivate virtual env
